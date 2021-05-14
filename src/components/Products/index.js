@@ -12,13 +12,14 @@ import {
     ProductBtn
 } from './ProductItems';
 
-const Products = () => {
+const Products = ({heading,data}) => {
     return (
         <ProductContainer>
-            <ProductHeading>Heading</ProductHeading>
+            <ProductHeading>{heading}</ProductHeading>
             <ProductWrapper>
                 {data.map((product,index) => {
-                    <ProductCard key={index}>
+                    return (
+                        <ProductCard key={index}>
                         <ProductImg src={product.img} alt={product.alt} />
                         <ProductInfo>
                             <ProductTitle>
@@ -29,6 +30,7 @@ const Products = () => {
                             <ProductBtn>{product.button}</ProductBtn>
                         </ProductInfo>
                     </ProductCard>
+                    );
                 })}
             </ProductWrapper>
         </ProductContainer>
